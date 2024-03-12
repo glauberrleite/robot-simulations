@@ -9,7 +9,7 @@ class CameraSimul(Node):
         super().__init__('camera_simul')
         self.camera_handle = camera_handle
 
-        self.publisher = self.create_publisher(Image, 'camera/image', 10)
+        self.publisher = self.create_publisher(Image, 'camera/image_raw', 10)
 
     def publish_image(self):
 
