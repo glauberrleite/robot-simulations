@@ -72,9 +72,9 @@ def sysCall_init():
 def sysCall_actuation():
     target_q = invkine(self.pose_setpoint[0], self.pose_setpoint[1], self.pose_setpoint[2], self.pose_setpoint[3], self.q_current)
     print(target_q)
-
-    for i, hdl in enumerate(self.joint_hdls):
-        sim.setJointTargetPosition(hdl, target_q[i])
+    if target_q is not None:
+        for i, hdl in enumerate(self.joint_hdls):
+            sim.setJointTargetPosition(hdl, target_q[i])
 
 def sysCall_sensing():
     self.q_current = np.zeros(4)
